@@ -1,0 +1,65 @@
+<div class="d-flex align-items-center justify-content-center rounded" style="min-height: 100vh;">
+    <div class="rounded" style="height: 100%;  max-width: 1000px;">
+        <div class="row d-flex align-items-center justify-content-center h-100 rounded shadow ">
+            <div class="col-sm-12 col-md-6 rounded p-5" style="height: 100%; background-color: rgb(238, 78, 5);">
+                <form class="p-4 m-2" [formGroup]="registerForm" (ngSubmit)="register()">
+
+                    <h1 class="text-white mb-3 text-center">Register</h1>
+                    <div>
+                        <input type="text" class="form-control mb-3" placeholder="Name" formControlName="username"
+                            name="username">
+                        <span class="text-white"
+                            *ngIf="registerForm.get('username')?.errors && registerForm.get('username')?.touched">Invalid
+                            Username</span>
+                    </div>
+                    <div>
+                        <input type="text" class="form-control mb-3" placeholder="Email" formControlName="email"
+                            name="email">
+                        <span class="text-light"
+                            *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">Invalid
+                            Email</span>
+
+                    </div>
+                    <div>
+                        <input type="text" class="form-control mb-3" placeholder="Password" formControlName="password"
+                            name="password">
+                        <span class="text-light"
+                            *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">Invalid
+                            Password</span>
+
+                    </div>
+                    <button type="submit" class="btn btn-light">Submit</button>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-6 shadow rounded " style="height:100%;background-color: wheat;">
+                <div class="text-center" style="color: rgb(238, 78, 5);">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img width="15%" height="10%" class="rounded"
+                            src="https://brandlogos.net/wp-content/uploads/2021/10/shopee-logo-1.png" alt="">
+                        <h3>ShoppyMe </h3>
+                    </div>
+                    <p class=" fs-5">Already have an Account ...?</p>
+
+
+                    <div>
+                        <img class="img-fluid rounded" src="{{ registerImage }}" alt="">
+                        <div class="centered d-flex flex-column" style="text-align:justify ;">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deserunt consequatur
+                            cupiditate
+                            culpa numquam vitae rem cumque temporibus, ullam maiores tenetur ipsum itaque adipisci minus
+                            in
+                            porro, facilis sit doloribus.
+                            <button  type="submit" class="btn  w-25 mt-4"
+                              routerLink="/login"  style="border : 1px solid rgb(238, 78, 5); color: rgb(238, 78, 5);">Login</button>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+        </div>

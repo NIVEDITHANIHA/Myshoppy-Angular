@@ -1,0 +1,4 @@
+.card :hover{
+    scale: 1.05;
+    transform: 0.5s;
+}

@@ -1,0 +1,29 @@
+<div class="text-center w-100" style="background-color: rgb(238, 78, 5);">
+  <div>
+    <div class="row">
+      <div class="col-lg-3 col-md-12 col-sm-12">
+        <div class="d-flex align-items-center p-3">
+          <img width="15%" height="15%" class="rounded-circle"
+            src="https://thumbs.dreamstime.com/b/shopping-bag-logo-incorporated-s-letter-design-template-197560879.jpg"
+            alt="">
+          <h1 class="text-white">ShoppyMe</h1>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-12 col-sm-12">
+        <div class="d-flex align-items-center p-3">
+          <input type="text" class="form-control w-100" placeholder="Search" >
+          <i class="fa-solid fa-magnifying-glass ms-2 text-white border border-light p-2 rounded"></i>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <div class="d-flex align-items-center p-3">
+          <button class="btn btn-outline-light me-2 flex-shrink-0" routerLink="/cartlist"><i
+              class="fa-solid fa-cart-shopping"></i>Cart <span class="fw-bolder">{{cartListCount}}</span> </button>
+          <button routerLink="/wishlist" class="btn btn-outline-light me-2 flex-shrink-0"><i class="fa-solid fa-heart"></i>Wishlist <span class="fw-bolder">{{wishListCount}}</span>  </button>
+          <button *ngIf="!userName" class="btn btn-outline-light flex-shrink-0 me-2" routerLink="/login"><i class="fa-solid fa-user"></i>Login</button>
+          <button *ngIf="userName" class="btn btn-outline-light flex-shrink-0 " ><i class="fa-solid fa-power-off me-2" (click)="logOut()"></i>{{userName}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

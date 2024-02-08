@@ -1,0 +1,67 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="text-center">
+        <div class="row d-flex align-items-center justify-content-center my-5"  *ngIf="cartlist.length!==0">
+            <h1 style="color: rgb(238, 78, 5);">Cart Summary</h1>
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="table-responsive m-3 shadow rounded">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let items of cartlist; let i = index">
+                            <tr>
+                                <th scope="row">{{i + 1}}</th>
+                                <td>{{items.title}}</td>
+                                <td>
+                                    <img [src]="items.image" alt="..." class="img-fluid" width="100" height="100">
+                                </td>
+                                <td>
+                                    <div class="d-flex">
+                                        <button class="btn border me-2" (click)="increment(items._id)">+</button>
+                                        <input type="number" [value]="items.quantity" class="form-control text-center w-100" readonly>
+                                        <button class="btn border ms-2" (click)="decrement(items._id)">-</button>
+                                    </div>
+                                </td>
+                                <td>$ {{items.price}}</td>
+                                <td>
+                                    <i class="fa-solid fa-trash text-danger fa-1x border border-danger p-2" (click)="removeCartlist(items._id)"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-between p-2">
+                        <button class="btn btn-outline-danger" (click)="emptyCart()">Empty Cart</button>
+                        <button class="btn btn-outline-primary" routerLink="/">Add to Cart</button>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="card h-100 shadow-lg d-flex flex-column align-items-center justify-content-center p-4">
+                    <div class="w-100 text-center mb-3 d-flex align-items-center justify-content-center">
+                        <h4 class="text-primary">Grand Total:</h4>
+                        <span class="fs-4" style="color: rgb(238, 78, 5);">$ {{findAllTotal.toFixed(2)}}</span>
+                    </div>
+                    <div class="w-100 text-center">
+                        <button class="btn btn-success" routerLink="/checkout">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="cartlist.length ==0" class="d-flex align-items-center justify-content-center w-100 flex-column p-md-5">
+            <img src="https://cdn.dribbble.com/users/5107895/screenshots/14532312/media/a7e6c2e9333d0989e3a54c95dd8321d7.gif" alt="" width="500" class="rounded-circle">
+            <h2 style="color: rgb(238, 78, 5);;">Your Cart is Empty</h2>
+
+        </div>
+    </div>
+</div>

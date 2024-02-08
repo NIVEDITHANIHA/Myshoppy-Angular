@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<div class="w-100 d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <img class="img-fluid rounded-end-circle"
+                    src="https://static.vecteezy.com/system/resources/previews/008/449/520/non_2x/the-delivery-driver-drives-through-a-mobile-phone-with-a-map-screen-online-food-delivery-concept-vector.jpg"
+                    alt="">
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 ">
+                <form class="shadow p-md-5" *ngIf="!proceedToBuy" [formGroup]="checkoutForm">
+                    <div class="p-md-5 border">
+                        <div class="form-group">
+                            <input type="text" class="form-control mb-3" placeholder="Username"
+                                formControlName="userName" name="userName">
+                            <span class="text-danger
+                                "
+                                *ngIf="checkoutForm.get('userName')?.errors && checkoutForm.get('userName')?.touched">Invalid
+                                Username</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control mb-3" placeholder="Apartment/Flat"
+                                formControlName="apartment" name="apartment">
+                            <span class="text-danger
+                            " *ngIf="checkoutForm.get('apartment')?.errors && checkoutForm.get('apartment')?.touched ">Invalid
+                                Flat</span>
+                        </div>
+                        <div class=" form-group">
+                            <input type="text" class="form-control mb-3" placeholder="Place" formControlName="place"
+                                name="place">
+                            <span class="text-danger
+                                " *ngIf="checkoutForm.get('place')?.errors &&
+                                    checkoutForm.get('place')?.touched">Invalid Place</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control mb-3" placeholder="Pincode"
+                                formControlName="pincode" name="pincode">
+                            <span class="text-danger
+                            " *ngIf="checkoutForm.get('pincode')?.errors &&
+                                checkoutForm.get('pincode')?.touched">Invalid Pincode</span>
+
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+                            <button class="btn btn-danger" type="submit" (click)="orderPlaced()">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="p-md-3" *ngIf="proceedToBuy">
+                    <div class="p-md-5 shadow">
+                        <div class="border p-md-4">
+                            <div class="p-md-3 text-center">
+                                <h4>Confirm The Delivery Address</h4>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <p>Name :<span class="text-danger fs-5">{{checkoutForm.value.userName}}</span></p>
+                                <p>Apartment/Flat :<span
+                                        class="text-danger fs-5">{{checkoutForm.value.apartment}}</span></p>
+                                <p>Place :<span class="text-danger fs-5">{{checkoutForm.value.place}}</span></p>
+                                <p>Pincode :<span class="text-danger fs-5">{{checkoutForm.value.pincode}}</span></p>
+                            </div>
+                            <p>Total Amount :<span class="text-primary fs-1">{{totalAmount}}</span></p>
+                            <div class="d-flex justify-content-between" *ngIf="!makePaymentStatus">
+                                <button class="btn btn-danger" (click)="back()">Back</button>
+                                <button class="btn btn-danger" (click)="makePayment()">Make the Payment</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="makePaymentStatus">
+                    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

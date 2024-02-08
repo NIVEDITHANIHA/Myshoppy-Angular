@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<div id="carouselExampleAutoplaying" class="carousel slide container-fluid bg-light" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+
+        <div class="carousel-item">
+            <img src="https://bangalore.mallsmarket.com/sites/default/files/photos/events/orionmall-50off-sale-1-2july2017-1.jpg"
+                class="d-block img-fluid" alt="...">
+        </div>
+        <div class="carousel-item active">
+            <img src="https://go-trade.ca/wp-content/uploads/2021/06/landing-page-01-1.jpg" class="d-block img-fluid"
+                alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://www.nagarhut.com/public/uploads/homebanner/1651052839.jpg" class="d-block img-fluid"
+                alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5" *ngFor="let items of products">
+                <div class="card h-75">
+                    <!-- Product image-->
+                    <img routerLink="/viewProducts/{{items.id}}" class="card-img-top p-2" width="100%" height="50%"
+                        src={{items.image}} alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h6>{{items.title}}</h6>
+                            <!-- Product price-->
+                            <h5 class="fw-bolder">{{items.price}}</h5>
+
+
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class=" card-footer d-flex align-items-center justify-content-between p-3">
+                        <i class="fa-solid fa-heart text-danger fa-1x border border-danger p-2"
+                            (click)="addtoWishlist(items)"></i>
+                        <i class="fa-solid fa-cart-shopping text-primary fa-1x border border-primary p-2"
+                            (click)="addtoCartlist(items)"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
