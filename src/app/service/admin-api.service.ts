@@ -16,7 +16,7 @@ export class AdminApiService {
 
 
 
-  service_url = "http://localhost:3000"
+  service_url = "https://myshoppy-2ye5.onrender.com"
   wishlistCount = new BehaviorSubject(0)
   cartlistCount = new BehaviorSubject(0)
 
