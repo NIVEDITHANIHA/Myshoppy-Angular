@@ -22,7 +22,9 @@ export class LoginComponent {
 
   loginedUsers() {
     console.log(this.loginedForm.value);
+    if (this.loginedForm.valid) {
 
+    
     const email = this.loginedForm.value.email
     const password = this.loginedForm.value.password
 
@@ -55,7 +57,14 @@ export class LoginComponent {
       })
     })
 
-
+  }
+  else{
+    Swal.fire({
+      title: 'error',
+      text: `OOPs ....!! `,
+      icon: 'error'
+    })
+  }
 
   }
 }

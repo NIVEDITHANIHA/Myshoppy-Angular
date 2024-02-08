@@ -1,14 +1,15 @@
 .centered {
-    position: absolute;
-    top: 50%;
-    left: 65%;
-    transform: translate(-30%, -65%);
+  position: absolute;
+  top: 50%;
+  left: 63%;
+  right: 10%;
+  transform: translate(-30%, -60%);
+}
+
+@media (max-width: 767px) {
+  .centered {
+      position: static;
+      transform: none;
+      text-align: center; /* Center text within the container */
   }
-  
-  @media (max-width: 767px) {
-    .centered {
-        position: static;
-        transform: none;
-        text-align: center; /* Center text within the container */
-    }
-  }
+}

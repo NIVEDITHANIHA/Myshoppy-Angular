@@ -21,7 +21,7 @@
               class="fa-solid fa-cart-shopping"></i>Cart <span class="fw-bolder">{{cartListCount}}</span> </button>
           <button routerLink="/wishlist" class="btn btn-outline-light me-2 flex-shrink-0"><i class="fa-solid fa-heart"></i>Wishlist <span class="fw-bolder">{{wishListCount}}</span>  </button>
           <button *ngIf="!userName" class="btn btn-outline-light flex-shrink-0 me-2" routerLink="/login"><i class="fa-solid fa-user"></i>Login</button>
-          <button *ngIf="userName" class="btn btn-outline-light flex-shrink-0 " ><i class="fa-solid fa-power-off me-2" (click)="logOut()"></i>{{userName}}</button>
+          <button  (click)="logOut()" *ngIf="userName" class="btn btn-outline-light flex-shrink-0 " ><i class="fa-solid fa-power-off me-2"></i>{{userName}}</button>
         </div>
       </div>
     </div>
